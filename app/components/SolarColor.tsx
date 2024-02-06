@@ -1,9 +1,8 @@
-'use client'
-
-import { useState } from 'react'
+import { type ComponentPropsWithoutRef } from 'react'
 import { readableColor } from 'polished'
-import { differenceInMinutes, format } from 'date-fns'
-import SunCalc, { GetTimesResult } from 'suncalc'
+import { format } from 'date-fns'
+import SunCalc, { type GetTimesResult } from 'suncalc'
+import { twMerge } from 'tailwind-merge'
 
 const config: Record<keyof GetTimesResult, { s: number; l: number }> = {
   nadir: { s: 15, l: 15 },
@@ -25,51 +24,54 @@ const config: Record<keyof GetTimesResult, { s: number; l: number }> = {
 const hue = 210 // Blue
 const location = [59.437, 24.7536] // Tallinn, Estonia
 
-// @ts-ignore
-const times: {
+type TimeEntry = {
   name: keyof GetTimesResult
   date: Date
   s: number
   l: number
-}[] = Object.entries(SunCalc.getTimes(new Date(), location[0], location[1]))
-  .sort(([, a], [, b]) => a.getTime() - b.getTime())
-  .map(([name, date]) => ({
-    name,
-    date,
-    s: config[name as keyof GetTimesResult].s,
-    l: config[name as keyof GetTimesResult].l,
-  }))
-
-const getSLForDate = (date: Date) => {
-  const nowIndex = [...times, { name: 'now', date }]
-    .sort((a, b) => a.date.getTime() - b.date.getTime())
-    .findIndex(i => i.name === 'now')
-  const prevTime =
-    nowIndex === 0 ? times[times.length - 1] : times[nowIndex - 1]
-  const nextTime = nowIndex === times.length ? times[0] : times[nowIndex]
-  const percent =
-    differenceInMinutes(date, prevTime.date) /
-    differenceInMinutes(nextTime.date, prevTime.date)
-  return {
-    s: Math.round(
-      config[prevTime.name].s +
-        (config[nextTime.name].s - config[prevTime.name].s) * percent,
-    ),
-    l: Math.round(
-      config[prevTime.name].l +
-        (config[nextTime.name].l - config[prevTime.name].l) * percent,
-    ),
-  }
 }
 
-export function SolarColorToday() {
+interface SolarColorTodayProps extends ComponentPropsWithoutRef<'div'> {
+  date: Date
+}
+
+export function SolarColorToday(props: SolarColorTodayProps) {
+  const times: TimeEntry[] = Object.entries(
+    SunCalc.getTimes(props.date, location[0], location[1]),
+  )
+    .sort(([, a], [, b]) => a.getTime() - b.getTime())
+    .map(([name, date]) => ({
+      name: name as keyof GetTimesResult,
+      date,
+      s: config[name as keyof GetTimesResult].s,
+      l: config[name as keyof GetTimesResult].l,
+    }))
+
+  // const getSLForDate = (date: Date) => {
+  //   const nowIndex = [...times, { name: 'now', date }]
+  //     .sort((a, b) => a.date.getTime() - b.date.getTime())
+  //     .findIndex(i => i.name === 'now')
+  //   const prevTime =
+  //     nowIndex === 0 ? times[times.length - 1] : times[nowIndex - 1]
+  //   const nextTime = nowIndex === times.length ? times[0] : times[nowIndex]
+  //   const percent =
+  //     differenceInMinutes(date, prevTime.date) /
+  //     differenceInMinutes(nextTime.date, prevTime.date)
+  //   return {
+  //     s: Math.round(
+  //       config[prevTime.name].s +
+  //         (config[nextTime.name].s - config[prevTime.name].s) * percent,
+  //     ),
+  //     l: Math.round(
+  //       config[prevTime.name].l +
+  //         (config[nextTime.name].l - config[prevTime.name].l) * percent,
+  //     ),
+  //   }
+  // }
+
   return (
-    <ul
-      className={`aspect-video bg-neutral-300 flex overflow-hidden rounded-2xl ${
-        times ? '' : 'animate-pulse'
-      }`}
-    >
-      <li
+    <div className={twMerge('flex', props.className)}>
+      <div
         style={{
           backgroundColor: `hsl(${hue}, ${config.night.s}%, ${config.night.l}%)`,
           color: readableColor(
@@ -81,7 +83,7 @@ export function SolarColorToday() {
       {times.map(({ name, date }, index) => {
         const time = config[name]
         return (
-          <li
+          <div
             key={name}
             style={{
               backgroundColor: `hsl(${hue}, ${time.s}%, ${time.l}%)`,
@@ -99,17 +101,17 @@ export function SolarColorToday() {
           />
         )
       })}
-    </ul>
+    </div>
   )
 }
 
-export function SolarColorForTime({ date }: { date: Date }) {
-  const { s: nowS, l: nowL } = getSLForDate(date)
+// export function SolarColorForTime({ date }: { date: Date }) {
+//   const { s: nowS, l: nowL } = getSLForDate(date)
 
-  return (
-    <div
-      className="aspect-video rounded-2xl"
-      style={{ backgroundColor: `hsl(${hue}, ${nowS}%, ${nowL}%)` }}
-    />
-  )
-}
+//   return (
+//     <div
+//       className="aspect-video rounded-2xl"
+//       style={{ backgroundColor: `hsl(${hue}, ${nowS}%, ${nowL}%)` }}
+//     />
+//   )
+// }

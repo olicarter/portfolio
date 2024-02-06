@@ -3,6 +3,8 @@ import AnimatedGradient from '@/app/components/AnimatedGradient'
 import Blob from '@/app/components/Blob'
 import { SolarColorToday } from '@/app/components/SolarColor'
 
+const now = new Date()
+
 export default function Home() {
   return (
     <main className="gap-x-4 sm:gap-x-8 lg:gap-x-12 xl:gap-x-16 gap-y-8 sm:gap-y-16 lg:gap-y-24 xl:gap-y-32 grid justify-items-stretch md:grid-cols-2 min-h-screen px-4 sm:px-8 lg:px-12 xl:px-16">
@@ -29,7 +31,7 @@ export default function Home() {
           experience.
         </p>
         <p>
-          That is one thing that makes gradients a must have though...
+          There is one thing that makes gradients a must have though...
           <span className="font-bold whitespace-pre">
             {' '}
             {'Animation!'.split('').map((letter, index) => (
@@ -86,7 +88,10 @@ export default function Home() {
         <p>For example this how today in Tallinn, Estonia would look.</p>
       </div>
       <div className="md:order-3 not-prose">
-        <SolarColorToday />
+        <SolarColorToday
+          className="aspect-video min-h-full overflow-hidden rounded-2xl w-full"
+          date={now}
+        />
       </div>
 
       <div className="md:hidden" />
