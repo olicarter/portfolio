@@ -11,7 +11,7 @@ export default function Section({
   return (
     <section
       className={twMerge(
-        'flex flex-col gap-4 max-w-screen-lg p-4 sm:gap-6 sm:p-6 md:gap-8 md:p-8 w-full',
+        'gap-4 grid items-center justify-items-stretch md:gap-8 md:grid-cols-2 md:p-8 p-4 sm:gap-6 sm:p-6 w-full',
         className,
       )}
       {...rest}

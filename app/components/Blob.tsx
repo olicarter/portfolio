@@ -44,9 +44,9 @@ export default function Blob(props: BlobProps) {
                 noise3D(Math.cos(angle), Math.sin(angle), timeRef.current))
           const cell = (x + y * width * devicePixelRatio) * 4
           if (dx * dx + dy * dy <= radius * radius) {
-            data[cell] = 255
-            data[cell + 1] = 79
-            data[cell + 2] = 79 // color
+            data[cell] = 244
+            data[cell + 1] = 63
+            data[cell + 2] = 94
             data[cell + 3] = 255 // alpha
           } else {
             data[cell + 3] = 0 // alpha

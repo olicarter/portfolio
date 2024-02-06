@@ -8,7 +8,7 @@ body {
 
 @layer components {
   h1 {
-    @apply text-5xl font-black leading-normal;
+    @apply text-5xl font-extrabold;
   }
 }
 
