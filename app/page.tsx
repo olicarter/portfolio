@@ -1,9 +1,12 @@
 import Image from 'next/image'
+import { format } from 'date-fns'
 import AnimatedGradient from '@/app/components/AnimatedGradient'
 import Blob from '@/app/components/Blob'
 import Prose from '@/app/components/Prose'
 import Section from '@/app/components/Section'
-import SolarColor from '@/app/components/SolarColor'
+import { SolarColorForTime, SolarColorToday } from '@/app/components/SolarColor'
+
+const now = new Date()
 
 export default function Home() {
   return (
@@ -73,25 +76,36 @@ export default function Home() {
         <Prose>
           <h3>Geopalette</h3>
           <p>
-            I love dark mode, it&apos;s the best, right up there with capacitive
-            touch screens.
+            I&apos;ve often pondered how to make the web feel more natural by
+            using nature to guide design.
           </p>
           <p>
-            Although, the jump between light and dark can feel a tad jarring.
+            This is an experiment using{' '}
+            <a
+              href="https://www.npmjs.com/package/suncalc"
+              rel="noreferrer"
+              target="_blank"
+            >
+              suncalc
+            </a>{' '}
+            to generate a background colors for various times of day.
           </p>
+          <p>For example this how today in Tallinn, Estonia would look.</p>
+        </Prose>
+        <SolarColorToday />
+        <Prose>
           <p>
-            This is an experiment using key sunlight times in your location to
-            generate a background color suitable for the time of day where you
-            are.
+            And this is the color it generates for {format(now, 'h:mmaaa')}{' '}
+            there.
           </p>
         </Prose>
-        <SolarColor />
+        <SolarColorForTime date={now} />
       </Section>
       <Section>
         <Prose>
           <h3>Just a blob™</h3>
           <p>
-            Ok so after doing some{' '}
+            After doing some{' '}
             <a
               href="https://threejs-journey.com"
               rel="noreferrer"
