@@ -1,6 +1,7 @@
-import Image from 'next/image'
 import AnimatedGradient from '@/app/components/AnimatedGradient'
+import Avatar from '@/app/components/Avatar'
 import Blob from '@/app/components/Blob'
+import Stars from '@/app/components/Stars'
 import { SolarColorToday } from '@/app/components/SolarColor'
 
 const now = new Date()
@@ -9,15 +10,8 @@ export default function Home() {
   return (
     <main className="gap-x-4 sm:gap-x-8 lg:gap-x-12 xl:gap-x-16 gap-y-8 sm:gap-y-16 lg:gap-y-24 xl:gap-y-32 grid justify-items-stretch md:grid-cols-2 min-h-screen px-4 sm:px-8 lg:px-12 xl:px-16">
       <div className="md:col-span-2 min-h-[80vh] flex flex-col gap-4 items-center justify-center">
-        <div className="not-prose h-48 overflow-hidden rounded-full shrink-0 w-48 place-self-center">
-          <Image
-            alt="Oli Carter avatar"
-            className="bottom-3 relative rounded-full"
-            height={256}
-            src="/me.jpg"
-            width={256}
-          />
-        </div>
+        <Stars />
+        <Avatar />
 
         <h1 className="text-rose-500">Oli Carter</h1>
         <p>Web developer, UI designer</p>
@@ -64,7 +58,9 @@ export default function Home() {
           to generate the color values.
         </p>
       </div>
-      <AnimatedGradient className="aspect-video contrast-125 min-h-full md:order-1 rounded-2xl" />
+      <div className="aspect-video dark:bg-neutral-800 md:order-1 min-h-full overflow-hidden rounded-2xl">
+        <AnimatedGradient className="contrast-125 h-full w-full" />
+      </div>
 
       <div className="md:hidden" />
 
