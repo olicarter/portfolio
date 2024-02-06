@@ -3,33 +3,12 @@
 @tailwind utilities;
 
 body {
-  background: #f5f5f5;
-  color: #111;
-}
-
-p {
-  @apply text-neutral-700;
-}
-
-@media (prefers-color-scheme: dark) {
-  body {
-    background: #111;
-    color: #f5f5f5;
-  }
-  p {
-    @apply text-neutral-300;
-  }
+  @apply bg-neutral-50 dark:bg-neutral-900 dark:text-neutral-50 text-neutral-900;
 }
 
 @layer components {
-  .h1 {
-    @apply text-5xl font-black;
-  }
-  .h3 {
-    @apply text-2xl font-extrabold;
-  }
-  .yeah:nth-of-type(1) {
-    @apply text-red-500;
+  h1 {
+    @apply text-5xl font-black leading-normal;
   }
 }
 

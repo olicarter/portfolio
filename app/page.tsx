@@ -1,38 +1,40 @@
 import Image from 'next/image'
 import AnimatedGradient from '@/app/components/AnimatedGradient'
-import SolarColor from '@/app/components/SolarColor'
 import Blob from '@/app/components/Blob'
+import Prose from '@/app/components/Prose'
+import Section from '@/app/components/Section'
+import SolarColor from '@/app/components/SolarColor'
 
 export default function Home() {
   return (
-    <main className="flex flex-col items-center min-h-screen">
-      <section className="flex gap-8 items-center justify-between max-w-screen-lg p-8 w-full min-h-[50vh]">
-        <div className="flex flex-col gap-2 justify-center">
-          <h1 className="h1">
-            Hi, I&apos;m <span className="text-[#FF4F4F]">Oli</span>
-          </h1>
-          <p>Web developer, UI designer</p>
-        </div>
-        <div className="h-64 overflow-hidden rounded-full w-64">
+    <main className="flex flex-col items-center min-h-screen py-4 sm:py-8">
+      <Section className="flex-col sm:flex-row items-center justify-between">
+        <div className="h-32 overflow-hidden rounded-full shrink-0 sm:h-64 sm:order-2 sm:w-64 w-32">
           <Image
             alt="Oli Carter avatar"
-            className="relative bottom-3"
+            className="bottom-3 relative rounded-full"
             height={256}
             src="/me.jpg"
             width={256}
           />
         </div>
-      </section>
-      <section className="flex flex-col gap-8 max-w-screen-lg p-8 w-full">
-        <header className="space-y-4">
-          <h3 className="h3">Gradients</h3>
+        <div>
+          <h1>
+            Hi, I&apos;m <span className="text-[#FF4F4F]">Oli</span>
+          </h1>
+          <p>Web developer, UI designer</p>
+        </div>
+      </Section>
+      <Section>
+        <Prose>
+          <h3>Gradients</h3>
           <p>
             Now I&apos;m not saying they belong everywhere, but tastfully done,
             gradients can bring much needed joy to an oftentimes bland browsing
             experience.
           </p>
           <p>
-            And what takes gradients from um to yum?
+            That is one thing that makes gradients a must have though...
             <span className="font-bold whitespace-pre">
               {' '}
               {'Animation!'.split('').map((letter, index) => (
@@ -64,12 +66,12 @@ export default function Home() {
             </a>{' '}
             to generate the color values.
           </p>
-        </header>
+        </Prose>
         <AnimatedGradient className="aspect-video contrast-125 rounded-2xl" />
-      </section>
-      <section className="flex flex-col gap-8 max-w-screen-lg p-8 w-full">
-        <header className="space-y-4">
-          <h3 className="h3">Geopalette</h3>
+      </Section>
+      <Section>
+        <Prose>
+          <h3>Geopalette</h3>
           <p>
             I love dark mode, it&apos;s the best, right up there with capacitive
             touch screens.
@@ -82,12 +84,12 @@ export default function Home() {
             generate a background color suitable for the time of day where you
             are.
           </p>
-        </header>
+        </Prose>
         <SolarColor />
-      </section>
-      <section className="flex flex-col gap-8 max-w-screen-lg p-8 w-full">
-        <header className="space-y-4">
-          <h3 className="h3">Just a blob™</h3>
+      </Section>
+      <Section>
+        <Prose>
+          <h3>Just a blob™</h3>
           <p>
             Ok so after doing some{' '}
             <a
@@ -104,9 +106,9 @@ export default function Home() {
             This is a just a blob™, not particularly useful but strangely
             hypnotic.
           </p>
-        </header>
+        </Prose>
         <Blob className="aspect-video" />
-      </section>
+      </Section>
     </main>
   )
 }
