@@ -27,7 +27,7 @@ export default function Home() {
         <header className="space-y-4">
           <h3 className="h3">Gradients</h3>
           <p>
-            Now I'm not saying they belong everywhere, but tastfully done,
+            Now I&apos;m not saying they belong everywhere, but tastfully done,
             gradients can bring much needed joy to an oftentimes bland browsing
             experience.
           </p>
@@ -52,7 +52,8 @@ export default function Home() {
             </span>
           </p>
           <p>
-            Here's an example of an infinitely changing animated gradient using{' '}
+            Here&apos;s an example of an infinitely changing animated gradient
+            using{' '}
             <a
               className="underline"
               href="https://www.npmjs.com/package/simplex-noise"
@@ -70,7 +71,7 @@ export default function Home() {
         <header className="space-y-4">
           <h3 className="h3">Geopalette</h3>
           <p>
-            I love dark mode, it's the best, right up there with capacitive
+            I love dark mode, it&apos;s the best, right up there with capacitive
             touch screens.
           </p>
           <p>
@@ -106,20 +107,6 @@ export default function Home() {
         </header>
         <Blob className="aspect-video" />
       </section>
-      {/* <section
-        id="other-things"
-        className="flex flex-col gap-8 max-w-screen-lg p-8 w-full"
-      >
-        <header className="flex flex-col gap-2">
-          <h3 className="h3">Other things</h3>
-          <p>
-            Whilst web dev and design are what pay the bills, I love to make
-            music, bake fermented morsels and try my hand at building
-            synthesizers.
-          </p>
-        </header>
-        <div className="aspect-video" />
-      </section> */}
     </main>
   )
 }
