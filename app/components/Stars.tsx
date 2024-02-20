@@ -17,7 +17,7 @@ export default function Stars() {
               animationDuration: `${animationDuration}ms`,
               height: size,
               left: `${x}%`,
-              opacity: `${100 - y}%`,
+              opacity: `${50 - y}%`,
               top: `${y}%`,
               width: size,
             }}
