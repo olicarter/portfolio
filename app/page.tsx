@@ -14,7 +14,7 @@ export default function Home() {
         <Avatar />
 
         <h1 className="text-rose-500">Oli Carter</h1>
-        <p>Web developer, UI designer</p>
+        <p>Web developer</p>
       </div>
 
       <div className="dark:prose-invert md:order-2 max-w-none prose prose-neutral">
