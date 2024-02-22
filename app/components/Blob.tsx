@@ -1,12 +1,12 @@
 'use client'
 
-import { ComponentPropsWithRef, useCallback, useEffect, useRef } from 'react'
+import { type ComponentPropsWithoutRef, useCallback, useRef } from 'react'
 import { createNoise3D } from 'simplex-noise'
 
 const noise3D = createNoise3D(Math.random)
 const devicePixelRatio = 1
 
-interface BlobProps extends ComponentPropsWithRef<'canvas'> {}
+interface BlobProps extends ComponentPropsWithoutRef<'canvas'> {}
 
 export default function Blob(props: BlobProps) {
   const timeRef = useRef(0)

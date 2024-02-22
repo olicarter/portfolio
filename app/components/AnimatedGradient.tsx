@@ -5,7 +5,7 @@ import { createNoise3D } from 'simplex-noise'
 
 const noise3D = createNoise3D()
 const perf = 4 // Consisten 60FPS average
-const speed = 0.003
+const speed = 0.002
 const divisor = 1000 / perf
 
 interface AnimatedGradientProps extends ComponentPropsWithoutRef<'canvas'> {}

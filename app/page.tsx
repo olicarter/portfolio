@@ -1,119 +1,129 @@
 import AnimatedGradient from '@/app/components/AnimatedGradient'
 import Avatar from '@/app/components/Avatar'
-import Blob from '@/app/components/Blob'
 import Stars from '@/app/components/Stars'
-import { SolarColorToday } from '@/app/components/SolarColor'
-
-const now = new Date()
+import MoonPhase from '@/app/components/MoonPhase'
 
 export default function Home() {
   return (
-    <main className="gap-x-4 sm:gap-x-8 lg:gap-x-12 xl:gap-x-16 gap-y-8 sm:gap-y-16 lg:gap-y-24 xl:gap-y-32 grid justify-items-stretch md:grid-cols-2 min-h-screen px-4 sm:px-8 lg:px-12 xl:px-16">
-      <div className="md:col-span-2 min-h-[80vh] flex flex-col gap-4 items-center justify-center">
-        <Stars />
+    <main className="min-h-screen px-8 py-32 items-stretch flex flex-col gap-32 max-w-screen-sm mx-auto">
+      <Stars />
+
+      <header className="flex items-center justify-between">
+        <h1 className="text-center text-rose-500">Oli Carter</h1>
         <Avatar />
+      </header>
 
-        <h1 className="text-rose-500">Oli Carter</h1>
-        <p>Web Developer</p>
-      </div>
+      {/* <hr className="dark:border-neutral-800 mx-auto w-1/2" /> */}
 
-      <div className="dark:prose-invert md:order-2 max-w-none prose prose-neutral">
-        <h3>Gradients</h3>
+      <div className="dark:prose-invert max-w-screen-sm prose prose-neutral">
         <p>
-          Now I&apos;m not saying they belong everywhere, but tastfully done,
-          gradients can bring much needed joy to an oftentimes bland browsing
-          experience.
+          When I&apos;m not building UIs and APIs for employers like{' '}
+          <a href="https://www.seenit.io" rel="noreferrer" target="_blank">
+            Seenit
+          </a>{' '}
+          and{' '}
+          <a href="https://www.spill.chat" rel="noreferrer" target="_blank">
+            Spill
+          </a>
+          , you&apos;ll most likely find me walking with my dog or enjoying some
+          form of side project.
         </p>
         <p>
-          There is one thing that makes gradients a must have though...
-          <span className="font-bold whitespace-pre">
-            {' '}
-            {'Animation!'.split('').map((letter, index) => (
-              <span className="relative text-transparent" key={index}>
-                <span
-                  className="absolute animate-bounce text-red-400"
-                  style={{
-                    animationDelay: `${index * 100}ms`,
-                    filter: `hue-rotate(${index * 36}deg)`,
-                  }}
-                >
-                  {letter}
-                </span>
-                {letter}
-              </span>
-            ))}
-          </span>
+          Recently those include bread baking, croissant making, synthesizer
+          noodling, electronic engineering, and seeing what interesting things I
+          can create with code.
         </p>
         <p>
-          Here&apos;s an example of an infinitely changing animated gradient
-          using{' '}
+          Check out my{' '}
           <a
-            className="underline"
-            href="https://www.npmjs.com/package/simplex-noise"
+            href="https://github.com/olicarter"
             rel="noreferrer"
             target="_blank"
           >
-            simplex-noise
+            GitHub
           </a>{' '}
-          to generate the color values.
+          for various coding bits. Below are some nice UI experiments I&apos;ve
+          been tinkering with recently.
         </p>
-      </div>
-      <div className="aspect-video dark:bg-neutral-800 md:order-1 min-h-full overflow-hidden rounded-2xl">
-        <AnimatedGradient className="contrast-125 h-full w-full" />
       </div>
 
-      <div className="md:hidden" />
+      <hr className="dark:border-neutral-800 mx-auto w-1/2" />
 
-      <div className="dark:prose-invert max-w-none md:order-4 prose prose-neutral">
-        <h3>Geopalette</h3>
-        <p>
-          I&apos;ve often pondered how to make the web feel more natural by
-          using nature to guide design.
-        </p>
-        <p>
-          This is an experiment using{' '}
-          <a
-            href="https://www.npmjs.com/package/suncalc"
-            rel="noreferrer"
-            target="_blank"
-          >
-            suncalc
-          </a>{' '}
-          to generate a background colors for various times of day.
-        </p>
-        <p>For example this how today in Tallinn, Estonia would look.</p>
-      </div>
-      <div className="md:order-3 not-prose">
-        <SolarColorToday
-          className="aspect-video min-h-full overflow-hidden rounded-2xl w-full"
-          date={now}
-        />
-      </div>
+      <section className="space-y-16">
+        <div className="aspect-square w-full">
+          <MoonPhase />
+        </div>
 
-      <div className="md:hidden" />
+        <div className="dark:prose-invert max-w-none prose prose-neutral">
+          <h3>A minimal moon phase UI</h3>
+          <p>I&apos;m a huge fan of minimalism.</p>
+          <p>
+            I also find the moon interesting and check the current phase from
+            time to time.
+          </p>
+          <p>
+            The sites and apps I find are usually full of data and ads, when all
+            I want is a pretty UI, so I made one.
+          </p>
+          <p>
+            3 HTML elements and some nifty CSS transforms later and voila! I
+            deployed the useful version to{' '}
+            <a
+              href="https://moonphase-nu.vercel.app"
+              rel="noreferrer"
+              target="_blank"
+            >
+              moonphase-nu.vercel.app
+            </a>{' '}
+            so you can use it too, yay.
+          </p>
+          <p>
+            It&apos;s PWA friendly so you can add it to your home screen and
+            it&apos;ll feel like a native app.
+          </p>
+        </div>
+      </section>
 
-      <div className="dark:prose-invert max-w-none md:order-6 prose prose-neutral">
-        <h3>Just a blob™</h3>
-        <p>
-          After doing some{' '}
-          <a
-            href="https://threejs-journey.com"
-            rel="noreferrer"
-            target="_blank"
-          >
-            Three.js Journey
-          </a>{' '}
-          lessons and discovering how to use noise algorithms to generate
-          coherent random graphics, I wanted to apply it to everything.
-        </p>
-        <p>
-          This is a just a blob™, not particularly useful but strangely
-          hypnotic.
-        </p>
-      </div>
-      <div className="aspect-video flex items-center justify-center md:order-5">
-        <Blob />
-      </div>
+      <hr className="dark:border-neutral-800 mx-auto w-1/2" />
+
+      <section className="space-y-16">
+        <div className="aspect-square overflow-hidden rounded-full w-full">
+          <AnimatedGradient className="contrast-125 h-full w-full" />
+        </div>
+
+        <div className="dark:prose-invert max-w-none prose prose-neutral">
+          <h3>An infinitely changing animated gradient</h3>
+          <p>
+            I bought the{' '}
+            <a
+              href="https://threejs-journey.com"
+              rel="noreferrer"
+              target="_blank"
+            >
+              Three.js Journey
+            </a>{' '}
+            course some time ago (you should too, it&apos;s phenomenal) and
+            subsequently became intrigued by noise algorithms.
+          </p>
+          <p>
+            Here I used{' '}
+            <a
+              className="underline"
+              href="https://www.npmjs.com/package/simplex-noise"
+              rel="noreferrer"
+              target="_blank"
+            >
+              simplex-noise
+            </a>{' '}
+            to create a gradient that is unique on every render and can be
+            animated, resulting in the most magical effect ✨
+          </p>
+          <p>
+            You can even animate the alpha value for incredible an aurora-esque
+            effect.
+          </p>
+        </div>
+      </section>
     </main>
   )
 }
