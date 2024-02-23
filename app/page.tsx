@@ -8,9 +8,13 @@ export default function Home() {
     <main className="min-h-screen px-8 py-32 items-stretch flex flex-col gap-32 max-w-screen-sm mx-auto">
       <Stars />
 
-      <header className="flex items-center justify-between">
-        <h1 className="text-center text-rose-500">Oli Carter</h1>
-        <Avatar />
+      <header className="flex flex-col md:flex-row gap-16 items-center justify-between">
+        <h1 className="order-2 md:order-1 text-center text-rose-500">
+          Oli Carter
+        </h1>
+        <div className="order-1 md:order-2">
+          <Avatar />
+        </div>
       </header>
 
       {/* <hr className="dark:border-neutral-800 mx-auto w-1/2" /> */}
