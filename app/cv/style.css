@@ -1,0 +1,39 @@
+a {
+  @apply hover:underline;
+}
+
+header h1 {
+  @apply font-semibold text-4xl;
+}
+
+header p {
+  @apply text-lg text-neutral-200;
+}
+
+section {
+  @apply space-y-4;
+}
+
+section h3 {
+  @apply font-extrabold text-xl;
+}
+
+section h5 {
+  @apply font-bold;
+}
+
+section header {
+  @apply text-base;
+}
+
+section p {
+  @apply leading-snug text-neutral-700 text-sm;
+}
+
+li {
+  @apply leading-snug;
+}
+
+.max-a4 {
+  @apply max-w-[210mm] w-full;
+}
