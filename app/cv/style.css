@@ -11,7 +11,7 @@ header p {
 }
 
 section {
-  @apply space-y-4;
+  @apply py-4;
 }
 
 section h3 {
@@ -27,11 +27,7 @@ section header {
 }
 
 section p {
-  @apply leading-snug text-neutral-700 text-sm;
-}
-
-li {
-  @apply leading-snug;
+  @apply text-neutral-700 text-sm;
 }
 
 .max-a4 {

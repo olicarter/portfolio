@@ -4,15 +4,15 @@ import './style.css'
 
 const data = {
   summary:
-    'I am Oliver Carter, a web developer with 8 years of experience developing a diverse range of websites, from small freelance projects and rapid prototypes, to vast component libraries and complex enterprise applications. I currently work as a Full Stack Developer, where I am developing and maintaining a large React component library, multiple GraphQL and REST APIs, and a comprehensive test suite. Whilst my roles have always required working across the stack, my time and passions have always been heavily focused on building UIs.',
+    "I'm Oli, a web developer with 8 years of experience developing a diverse range of websites, from small freelance projects and rapid prototypes, to vast component libraries and complex enterprise applications. I currently work as a Senior Front End Developer, where I am developing and maintaining a large React component library and a comprehensive test suite. Whilst my roles have typically required working across the stack, my time and passions have been heavily focused on UI development.",
   experience: [
     {
       company: 'Seenit',
       url: 'https://seenit.io',
-      role: 'Full Stack Developer',
+      role: 'Senior Front End Developer',
       date: 'Mar 2024 - Present',
       responsibilities: [
-        'Developed and maintained the core enterprise video collaboration platform',
+        'Developed enterprise video collaboration platform, used by some of the largest companies in the world',
         'Implemented developer tooling that improved DX and type safety',
         'Created incremental migration plan for upgrading deprecated dependencies in large codebase that would enable usage of modern tooling',
       ],
@@ -23,11 +23,22 @@ const data = {
       role: 'Product Developer',
       date: 'Dec 2021 - Nov 2023',
       responsibilities: [
-        'Developed and maintained employee wellbeing platform, including Slack and Teams apps',
+        'Lead on development of component library, ensuring consistency and maintainability',
+        'Developed core features of mental health platform, including building for web, Slack, and Teams platforms',
         'Managed projects, coordinating team and communicating expectations with wider company',
-        'Contributed to full feature lifecycle, from ideation to delivery',
-        'Designed features in Figma, working closely with product and marketing',
+        'Designed features in Figma, working closely with product and marketing ',
+        'Contributed to full feature lifecycle, from ideation in cross-functional teams to post-release analysis',
         'Mentored two interns over the course of a year',
+      ],
+    },
+    {
+      company: 'Bring Your Own',
+      role: 'Freelance Developer',
+      date: '2022',
+      responsibilities: [
+        'Designed and developed website in React for local food delivery service',
+        'Implemented KeystoneJS CMS for easy content management',
+        'Integrated with Stripe for payments',
       ],
     },
     {
@@ -36,35 +47,42 @@ const data = {
       role: 'Full Stack Developer',
       date: 'Mar 2019 - Nov 2021',
       responsibilities: [
-        'Developed multiple greenfield frontend and backend codebases',
-        'Contributed heavily to large React component library, using Storybook for parallel development',
-        'Maintained legacy React frontend and Python backend',
-        'Implemented frontend data caching strategies for improved performance',
-        'Developed and maintained CI/CD pipelines using Kubernetes and Github Actions',
+        'Developed enterprise video collaboration platform',
+        'Contributed heavily to large internal component library',
+        'Created and developed REST and GraphQL APIs in a microservice architecture',
+        'Developed and maintained containerised CI/CD pipeline',
+        'Maintained legacy platform written with React class components and Python',
       ],
     },
   ],
   skills: [
     {
       name: 'JavaScript',
-      years: 8,
-      tools: ['TypeScript', 'React', 'Node.js'],
+      // years: 8,
+      highlights: ['TypeScript', 'React', 'Node.js'],
       description:
-        'Proficient in TypeScript and React, I have a strong penchant for clear and simple code, using native APIs and web standards for longevity and maintainability.',
+        'Experienced in developing and maintaining large codebases, primarily in React, with a strong preference for TypeScript.',
     },
     {
-      name: 'CSS',
-      years: 8,
-      tools: ['Tailwind CSS', 'Styled Components'],
+      name: 'Web Design',
+      // years: 8,
+      highlights: ['CSS', 'Tailwind', 'Three.js', 'Figma'],
       description:
-        "The resident expert in all places I've worked, I can rapidly build beautiful components, and have a deep understanding of the intricacies of implementing designs.",
+        'Resident CSS wizard and go-to engineer for design feedback, with a keen eye for UI and a deep understanding of design implementation.',
     },
     {
-      name: 'Testing',
-      years: 5,
-      tools: ['Jest', 'Cypress', 'Storybook'],
+      name: 'Developer Experience',
+      // years: 5,
+      highlights: ['Maintainability', 'Efficiency'],
       description:
-        'Experienced in writing unit, integration, E2E and visual regression tests. Implemented and maintained Storybook and reliable data mocking strategies.',
+        'A huge advocate of strong typing, concise code, thorough peer reviews and documentation, often using AI to simplify and refine code for ultimate clarity.',
+    },
+    {
+      name: 'User Experience',
+      // years: 8,
+      highlights: ['Performance', 'Usability'],
+      description:
+        'Deeply passionate about creating delightful user experiences, considering every pixel and interaction, whilst marrying company goals with user needs.',
     },
   ],
 }
@@ -75,18 +93,18 @@ export default function CVPage() {
       <header className="bg-emerald-900 flex flex-col items-center p-6 text-neutral-50 w-full">
         <div className="flex items-end justify-between max-a4">
           <div className="space-y-2">
-            <h1>Oliver Carter</h1>
+            <h1>Oli Carter</h1>
             <p>Web Developer</p>
           </div>
           <Avatar size={128} />
         </div>
       </header>
       <div className="flex flex-col items-center p-6">
-        <div className="*:space-y-12 gap-x-12 grid grid-cols-3 max-a4">
+        <div className="gap-x-12 grid grid-cols-3 max-a4">
           <div>
             <section>
               <h3>Contact</h3>
-              <ul className="space-y-1 text-sm">
+              <ul className="py-4 space-y-1 text-sm">
                 <li>
                   <a href="mailto:me@olicarter.dev">me@olicarter.dev</a>
                 </li>
@@ -102,13 +120,13 @@ export default function CVPage() {
             </section>
             <section>
               <h3>Skills</h3>
-              <ul className="space-y-4">
+              <ul>
                 {data.skills.map(skill => (
                   <Item
                     key={skill.name}
                     heading={skill.name}
-                    annotation={`${skill.years}y`}
-                    subheading={`Tools: ${skill.tools.join(', ')}`}
+                    // annotation={skill.years ? `${skill.years}y` : undefined}
+                    subheading={skill.highlights.join(', ')}
                     body={<p>{skill.description}</p>}
                   />
                 ))}
@@ -118,20 +136,28 @@ export default function CVPage() {
           <div className="col-span-2">
             <section>
               <h3>Summary</h3>
-              <p>{data.summary}</p>
+              <p className="py-4">{data.summary}</p>
             </section>
             <section>
               <h3>Experience</h3>
-              <ul className="space-y-4 text-sm">
+              <ul className="text-sm">
                 {data.experience.map(experience => (
                   <Item
                     key={experience.company}
                     heading={experience.role}
                     annotation={experience.date}
                     subheading={
-                      <a href={experience.url} rel="noreferrer" target="_blank">
-                        {experience.company}
-                      </a>
+                      experience.url ? (
+                        <a
+                          href={experience.url}
+                          rel="noreferrer"
+                          target="_blank"
+                        >
+                          {experience.company}
+                        </a>
+                      ) : (
+                        experience.company
+                      )
                     }
                     body={
                       <ul className="list-disc list-outside pl-[13px]">
@@ -153,17 +179,17 @@ export default function CVPage() {
 
 function Item(props: {
   heading: string
-  annotation: string
+  annotation?: string
   subheading: ReactNode
   body: ReactNode
 }) {
   return (
-    <li className="space-y-1">
+    <li className="py-4 space-y-1">
       <header className="flex items-center justify-between">
-        <h5>{props.heading}</h5>
-        <span className="text-sm">{props.annotation}</span>
+        <h5 className="leading-none">{props.heading}</h5>
+        <span className="leading-none text-sm">{props.annotation}</span>
       </header>
-      <p className="text-neutral-500 text-xs">{props.subheading}</p>
+      <p className="text-neutral-400 text-sm">{props.subheading}</p>
       {props.body}
     </li>
   )
