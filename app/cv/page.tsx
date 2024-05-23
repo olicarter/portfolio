@@ -4,7 +4,7 @@ import './style.css'
 
 const data = {
   summary:
-    "I'm Oli, a web developer with 8 years of experience developing a diverse range of websites, from small freelance projects and rapid prototypes, to vast component libraries and complex enterprise applications. I currently work as a Senior Front End Developer, where I am developing and maintaining a large React component library and a comprehensive test suite. Whilst my roles have typically required working across the stack, my time and passions have been heavily focused on UI development.",
+    "I'm Oli, a web developer with 6 years of experience developing a diverse range of websites, from small freelance projects and rapid prototypes, to vast component libraries and complex enterprise applications. I currently work as a Senior Front End Developer, where I am developing and maintaining a large React component library and a comprehensive test suite. Whilst my roles have typically required working across the stack, my time and passions have been heavily focused on UI development.",
   experience: [
     {
       company: 'Seenit',
