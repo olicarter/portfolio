@@ -38,7 +38,6 @@ const data = {
       responsibilities: [
         'Designed and developed website in React for local food delivery service',
         'Implemented KeystoneJS CMS for easy content management',
-        'Integrated with Stripe for payments',
       ],
     },
     {
