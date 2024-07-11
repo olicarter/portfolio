@@ -26,7 +26,7 @@ export default async function ProjectsPage() {
         </p>
         <p>
           Candid aims to make feedback safe and easy through AI-powered
-          anonymisation and agggregation.
+          anonymisation and aggregation.
         </p>
         <Image
           alt="App screenshot"
@@ -81,9 +81,9 @@ export default async function ProjectsPage() {
           I set out to create the perfect noise-based gradient animation.
         </p>
         <p>
-          The results were perfect; always moving, merging, fading, glowing,
-          sometimes dark, sometimes pastel, infinitely random, yet performant
-          and tweakable.
+          The results were exactly what I wantedt; always moving, merging,
+          fading, glowing, sometimes dark, sometimes pastel, infinitely random,
+          yet performant and tweakable.
         </p>
       </li>
     </ul>
