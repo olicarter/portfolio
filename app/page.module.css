@@ -1,41 +1,43 @@
 .projects {
   display: flex;
   flex-direction: column;
-  gap: 4vmin;
+  gap: 6vmin;
   overflow-y: scroll;
-  padding: 4vmin;
+  padding: 6vmin;
   scrollbar-width: none;
 }
 
 .project {
-  border-radius: 4vmin;
+  border-radius: 6vmin;
   display: flex;
   flex-direction: column;
-  gap: inherit;
-  min-height: calc(100vmin - 8vmin);
+  gap: 4vmin;
+  min-height: calc(100svh - 12vmin);
   overflow: hidden;
   padding: inherit;
   position: relative;
 }
 
 .project h3 {
-  font-size: 6vmin;
+  font-size: calc(4vmin + 0.6rem);
   font-weight: 700;
   line-height: 1;
 }
 
 .project p {
-  font-size: 2.5vmin;
+  font-size: calc(1.5vmin + 0.6rem);
+  max-width: 1024px;
 }
 
 .project.candid {
-  background: linear-gradient(135deg, #022c22, #0a0a0a);
+  background: linear-gradient(135deg, #022c22, #022c2280);
   color: #ecfdf5;
 }
 
 .project.moonphased {
-  background: linear-gradient(135deg, #171717, #0a0a0a);
+  background: linear-gradient(135deg, #171717, #17171780);
   color: #fefce8;
+  justify-content: flex-end;
 }
 
 .project.moonphased h3,
@@ -46,10 +48,4 @@
 .project.gradelicious h3,
 .project.gradelicious p {
   mix-blend-mode: overlay;
-}
-
-@media (min-width: 1280px) {
-  .project p {
-    max-width: 67%;
-  }
 }

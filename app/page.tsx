@@ -1,133 +1,91 @@
-import AnimatedGradient from '@/app/components/AnimatedGradient'
-import Avatar from '@/app/components/Avatar'
-import Stars from '@/app/components/Stars'
-import MoonPhase from '@/app/components/MoonPhase'
+import Image from 'next/image'
+import AnimatedGradient from './components/AnimatedGradient'
+import MoonPhase from './components/MoonPhase'
+import Stars from './components/Stars'
+import styles from './page.module.css'
 
-export default function Home() {
+export default async function ProjectsPage() {
+  const dogNames = ['my doglet', 'my pooch', 'the doggo', 'Mr Doglington']
+  const dogName = dogNames[Math.floor(Math.random() * dogNames.length)]
+
   return (
-    <main className="min-h-screen px-8 py-32 items-stretch flex flex-col gap-32 max-w-screen-sm mx-auto">
-      <Stars />
-
-      <header className="flex flex-col md:flex-row gap-16 items-center justify-between">
-        <h1 className="order-2 md:order-1 text-center text-rose-500">
-          Oli Carter
-        </h1>
-        <div className="order-1 md:order-2">
-          <Avatar />
-        </div>
-      </header>
-
-      {/* <hr className="dark:border-neutral-800 mx-auto w-1/2" /> */}
-
-      <div className="dark:prose-invert max-w-screen-sm prose prose-neutral">
-        <p>
-          When I&apos;m not building UIs and APIs for employers like{' '}
-          <a href="https://www.seenit.io" rel="noreferrer" target="_blank">
-            Seenit
-          </a>{' '}
-          and{' '}
-          <a href="https://www.spill.chat" rel="noreferrer" target="_blank">
-            Spill
-          </a>
-          , you&apos;ll most likely find me walking with my dog or enjoying some
-          form of side project.
-        </p>
-        <p>
-          Recently those include bread baking, croissant making, synthesizer
-          noodling, electronic engineering, and seeing what interesting things I
-          can create with code.
-        </p>
-        <p>
-          Check out my{' '}
+    <ul className={styles.projects}>
+      <li className={`${styles.project} ${styles.candid}`} data-angle="135deg">
+        <h3>
           <a
-            href="https://github.com/olicarter"
+            href="https://candid-team.vercel.app"
             rel="noreferrer"
             target="_blank"
           >
-            GitHub
-          </a>{' '}
-          for various coding bits. Below are some nice UI experiments I&apos;ve
-          been tinkering with recently.
+            candid
+          </a>
+        </h3>
+        <p>
+          Feedback amongst teams is essential for a healthy culture, yet
+          difficult to deliver and receive as intended.
         </p>
-      </div>
-
-      <hr className="dark:border-neutral-800 mx-auto w-1/2" />
-
-      <section className="space-y-16">
-        <div className="aspect-square w-full">
+        <p>
+          Candid aims to make feedback safe and easy through AI-powered
+          anonymisation and agggregation.
+        </p>
+        <Image
+          alt="App screenshot"
+          className="bg-emerald-950 rounded-[3vmin] w-full min-w-[768px]"
+          src="/candid-home.png"
+          width={1280}
+          height={720}
+        />
+      </li>
+      <li className={`${styles.project} ${styles.moonphased}`}>
+        <div className="absolute inset-0 z-0">
+          <Stars />
+        </div>
+        <div className="absolute top-0 right-0 w-full translate-x-1/3 -translate-y-1/3">
           <MoonPhase />
         </div>
-
-        <div className="dark:prose-invert max-w-none prose prose-neutral">
-          <h3>A minimal moon phase UI</h3>
-          <p>I&apos;m a huge fan of minimalism.</p>
-          <p>
-            I also find the moon interesting and check the current phase from
-            time to time.
-          </p>
-          <p>
-            The sites and apps I find are usually full of data and ads, when all
-            I want is a pretty UI, so I made one.
-          </p>
-          <p>
-            3 HTML elements and some nifty CSS transforms later and voila! I
-            deployed the useful version to{' '}
-            <a
-              href="https://moonphase-nu.vercel.app"
-              rel="noreferrer"
-              target="_blank"
-            >
-              moonphase-nu.vercel.app
-            </a>{' '}
-            so you can use it too, yay.
-          </p>
-          <p>
-            It&apos;s PWA friendly so you can add it to your home screen and
-            it&apos;ll feel like a native app.
-          </p>
-        </div>
-      </section>
-
-      <hr className="dark:border-neutral-800 mx-auto w-1/2" />
-
-      <section className="space-y-16">
-        <div className="aspect-square overflow-hidden rounded-full w-full">
-          <AnimatedGradient className="contrast-125 h-full w-full" />
-        </div>
-
-        <div className="dark:prose-invert max-w-none prose prose-neutral">
-          <h3>An infinitely changing animated gradient</h3>
-          <p>
-            I bought the{' '}
-            <a
-              href="https://threejs-journey.com"
-              rel="noreferrer"
-              target="_blank"
-            >
-              Three.js Journey
-            </a>{' '}
-            course some time ago (you should too, it&apos;s phenomenal) and
-            subsequently became intrigued by noise algorithms.
-          </p>
-          <p>
-            Here I used{' '}
-            <a
-              className="underline"
-              href="https://www.npmjs.com/package/simplex-noise"
-              rel="noreferrer"
-              target="_blank"
-            >
-              simplex-noise
-            </a>{' '}
-            to create a gradient that is unique on every render and can be
-            animated, resulting in the most magical effect ✨
-          </p>
-          <p>
-            You can even animate the alpha value for incredible an aurora-esque
-            effect.
-          </p>
-        </div>
-      </section>
-    </main>
+        <h3>
+          <a
+            href="https://moonphased.vercel.app"
+            rel="noreferrer"
+            target="_blank"
+          >
+            moonphased
+          </a>
+        </h3>
+        <p>
+          Oftentimes, when {dogName} or I have insomnia, I check the phase of
+          the moon to see if there&apos;s any correlation.
+        </p>
+        <p>
+          The results vary, but one constant is how cluttered the sites for
+          checking the moon phase are. Sometimes, you want oodles of science to
+          pore through. However, when you’re wide awake at 2 a.m., simplicity is
+          your friend.
+        </p>
+        <p>
+          That&apos;s why I made moonphased, a hyper-minimal UI for checking the
+          moon phase in the dead of night.
+        </p>
+      </li>
+      <li className={`${styles.project} ${styles.gradelicious}`}>
+        <AnimatedGradient className="absolute inset-0 size-full -z-10" />
+        <h3>gradelicious</h3>
+        <p>
+          My attempts to animate gradients using CSS were awkward and
+          disappointing; they never felt as interesting, fluid, or organic as I
+          envisioned.
+        </p>
+        <p>
+          Having been exposed to noise algorithms through the fantastic Three.js
+          Journey course, and armed with the superpower that is Github CoPilot,
+          I set out to create the perfect noise-based gradient animation.
+        </p>
+        <p>
+          The results were perfect; always moving, merging, fading, glowing,
+          sometimes dark, sometimes pastel, infinitely random, yet performant
+          and tweakable.
+        </p>
+      </li>
+    </ul>
   )
 }
