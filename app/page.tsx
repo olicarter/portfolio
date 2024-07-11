@@ -3,6 +3,7 @@ import AnimatedGradient from './components/AnimatedGradient'
 import MoonPhase from './components/MoonPhase'
 import Stars from './components/Stars'
 import styles from './page.module.css'
+import { NeonLight } from './components/NeonLight'
 
 export default async function ProjectsPage() {
   const dogNames = ['my doglet', 'my pooch', 'the doggo', 'Mr Doglington']
@@ -10,6 +11,13 @@ export default async function ProjectsPage() {
 
   return (
     <ul className={styles.projects}>
+      <li className={styles.project}>
+        {Array.from({ length: 2 }).map((_, index) => (
+          <NeonLight index={index} key={index} />
+        ))}
+        <h3 className="mix-blend-difference">Oli Carter</h3>
+        <p className="mix-blend-difference">Web developer and designer.</p>
+      </li>
       <li className={`${styles.project} ${styles.candid}`} data-angle="135deg">
         <h3>
           <a
