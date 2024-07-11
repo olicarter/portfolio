@@ -4,40 +4,34 @@ import './style.css'
 
 const data = {
   summary:
-    "I'm Oli, a web developer with 6 years of experience developing a diverse range of websites, from small freelance projects and rapid prototypes, to vast component libraries and complex enterprise applications. I currently work as a Senior Front End Developer, where I am developing and maintaining a large React component library and a comprehensive test suite. Whilst my roles have typically required working across the stack, my time and passions have been heavily focused on UI development.",
+    'Over 6 years of experience as a Full Stack Developer, developing and maintaining complex React applications and Node.js microservices. An expert in writing well-structured and strongly-typed code, with a keen understanding of best practices in code maintainability and parallel development in agile teams. Extensive experience refining, prioritising and translating product requirements into context-rich and organised tickets. Passionate about team culture through enthusiastic and inclusive communication, considered code reviews, knowledge sharing, and a focus on continual improvement.',
   experience: [
     {
-      company: 'Seenit',
+      company: 'Seenit (Contract)',
       url: 'https://seenit.io',
-      role: 'Senior Front End Developer',
-      date: 'Mar 2024 - Present',
+      role: 'Senior Full Stack Developer',
+      date: 'Mar 2024 - Jun 2024',
       responsibilities: [
-        'Developed enterprise video collaboration platform, used by some of the largest companies in the world',
-        'Implemented developer tooling that improved DX and type safety',
-        'Created incremental migration plan for upgrading deprecated dependencies in large codebase that would enable usage of modern tooling',
+        "Developed enterprise video collaboration platform, used by some of the world's largest companies",
+        'Architected and developed features across FE and BE',
+        'Automated developer tooling that improved DX and type safety',
+        'Mentored peers in TypeScript, React and GraphQL best practices',
+        'Documented plan for upgrading deprecated dependencies in large codebase, improving efficiency and enabling usage of modern tooling',
       ],
     },
     {
       company: 'Spill',
       url: 'https://spill.chat',
-      role: 'Product Developer',
+      role: 'Full Stack Developer',
       date: 'Dec 2021 - Nov 2023',
       responsibilities: [
-        'Lead on development of component library, ensuring consistency and maintainability',
         'Developed core features of mental health platform, including building for web, Slack, and Teams platforms',
-        'Managed projects, coordinating team and communicating expectations with wider company',
+        'Managed projects, coordinating cross-functional team and handling stakeholder communication',
+        'Lead on development of React component library, implementing Storybook and MSW for isolated development',
+        'Developed NestJS GraphQL microservices, including integrations with third-party APIs',
         'Designed features in Figma, working closely with product and marketing ',
         'Contributed to full feature lifecycle, from ideation in cross-functional teams to post-release analysis',
         'Mentored two interns over the course of a year',
-      ],
-    },
-    {
-      company: 'Bring Your Own',
-      role: 'Freelance Developer',
-      date: '2022',
-      responsibilities: [
-        'Designed and developed website in React for local food delivery service',
-        'Implemented KeystoneJS CMS for easy content management',
       ],
     },
     {
@@ -51,6 +45,15 @@ const data = {
         'Created and developed REST and GraphQL APIs in a microservice architecture',
         'Developed and maintained containerised CI/CD pipeline',
         'Maintained legacy platform written with React class components and Python',
+      ],
+    },
+    {
+      company: 'Bring Your Own',
+      role: 'Freelance Developer',
+      date: '2022',
+      responsibilities: [
+        'Designed and developed website in React for local food delivery service',
+        'Implemented KeystoneJS CMS for easy content management',
       ],
     },
   ],
@@ -93,17 +96,17 @@ export default function CVPage() {
         <div className="flex items-end justify-between max-a4">
           <div className="space-y-2">
             <h1>Oli Carter</h1>
-            <p>Web Developer</p>
+            <p>Full Stack Developer</p>
           </div>
           <Avatar size={128} />
         </div>
       </header>
       <div className="flex flex-col items-center p-6">
         <div className="gap-x-12 grid grid-cols-3 max-a4">
-          <div>
+          <aside>
             <section>
               <h3>Contact</h3>
-              <ul className="py-4 space-y-1 text-sm">
+              <ul className="pt-4 space-y-1 text-sm">
                 <li>
                   <a href="mailto:me@olicarter.dev">me@olicarter.dev</a>
                 </li>
@@ -111,6 +114,8 @@ export default function CVPage() {
                   <a
                     className="line-clamp-1 text-ellipsis"
                     href="https://www.linkedin.com/in/olicarter"
+                    rel="noreferrer"
+                    target="_blank"
                   >
                     linkedin.com/in/olicarter
                   </a>
@@ -118,24 +123,47 @@ export default function CVPage() {
               </ul>
             </section>
             <section>
-              <h3>Skills</h3>
-              <ul>
-                {data.skills.map(skill => (
-                  <Item
-                    key={skill.name}
-                    heading={skill.name}
-                    // annotation={skill.years ? `${skill.years}y` : undefined}
-                    subheading={skill.highlights.join(', ')}
-                    body={<p>{skill.description}</p>}
-                  />
-                ))}
+              <h3>Technologies</h3>
+              <ul className="pt-4 flex flex-wrap gap-1.5 text-sm *:rounded *:px-1.5 *:leading-6 *:bg-emerald-500/20">
+                <li>TypeScript</li>
+                <li>React</li>
+                <li>GraphQL</li>
+                <li>AWS</li>
+                <li>GCP</li>
+                <li>Node.js</li>
+                <li>NestJS</li>
+                <li>Storybook</li>
+                <li>CSS</li>
+                <li>HTML</li>
+                <li>Tailwind</li>
+                <li>Apollo</li>
+                <li>Express</li>
+                <li>Cypress</li>
+                <li>Testing Library</li>
+                <li>Jest/Vitest</li>
+                <li>Github Actions</li>
+                <li>Docker</li>
+                <li>Kubernetes</li>
               </ul>
             </section>
-          </div>
+            <section>
+              <h3>Skills</h3>
+              <ul className="pt-4 flex flex-wrap gap-1.5 text-sm *:rounded *:px-1.5 *:leading-6 *:bg-emerald-500/20">
+                <li>Component development</li>
+                <li>API development</li>
+                <li>Product development</li>
+                <li>Microservice development</li>
+                <li>Feature prioritisation</li>
+                <li>UI design</li>
+                <li>Containerisation</li>
+                <li>Project management</li>
+              </ul>
+            </section>
+          </aside>
           <div className="col-span-2">
             <section>
               <h3>Summary</h3>
-              <p className="py-4">{data.summary}</p>
+              <p className="pt-4">{data.summary}</p>
             </section>
             <section>
               <h3>Experience</h3>

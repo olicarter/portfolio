@@ -16,7 +16,7 @@ export default function MoonPhase() {
   }, [])
 
   return (
-    <div className="h-full relative rounded-full w-full">
+    <div className="aspect-square relative rounded-full z-0">
       <div className="absolute h-full w-0.5 bg-yellow-50 left-1/2 z-10 -translate-x-1/2" />
       <div
         className={clsx(
