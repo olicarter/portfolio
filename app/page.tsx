@@ -89,7 +89,7 @@ export default async function ProjectsPage() {
           I set out to create the perfect noise-based gradient animation.
         </p>
         <p>
-          The results were exactly what I wantedt; always moving, merging,
+          The results were exactly what I wanted; always moving, merging,
           fading, glowing, sometimes dark, sometimes pastel, infinitely random,
           yet performant and tweakable.
         </p>
