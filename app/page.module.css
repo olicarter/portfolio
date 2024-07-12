@@ -27,13 +27,17 @@
   max-width: 1024px;
 }
 
+.project.bio {
+  background: linear-gradient(135deg, #0a0a0a, black);
+}
+
 .project.candid {
-  background: linear-gradient(135deg, #022c22, #022c2280);
+  background: linear-gradient(135deg, #022c22, #0a0a0a);
   color: #ecfdf5;
 }
 
 .project.moonphased {
-  background: linear-gradient(135deg, #171717, #17171780);
+  background: linear-gradient(135deg, #171717, #0a0a0a);
   color: #fefce8;
   justify-content: flex-end;
 }
@@ -47,6 +51,7 @@
 .project.gradelicious h3,
 .project.gradelicious p,
 .project.gradelicious svg {
+  color: white;
   mix-blend-mode: overlay;
 }
 

@@ -10,7 +10,7 @@ export default function Stars() {
         const size = Math.random() * 5
         return (
           <div
-            className="animate-pulse bg-neutral-900 dark:bg-neutral-50 rounded-full absolute"
+            className="animate-pulse bg-yellow-50 rounded-full absolute"
             key={index}
             style={{
               animationDelay: `${index * (animationDuration / numStars)}ms`,

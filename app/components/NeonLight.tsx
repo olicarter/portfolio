@@ -1,9 +1,9 @@
 'use client'
 
-import { motion, useTime, useTransform } from 'framer-motion'
 import { useEffect, useState } from 'react'
+import { motion, useTime, useTransform, Variants } from 'framer-motion'
 
-export function NeonLight(props: { index: number }) {
+export default function NeonLight(props: { index: number }) {
   const [toggle, setToggle] = useState(props.index % 2 ? 0 : 1)
 
   useEffect(() => {
@@ -25,29 +25,37 @@ export function NeonLight(props: { index: number }) {
     { clamp: false },
   )
 
+  const variants: Variants = {
+    hidden: {
+      opacity: 0,
+    },
+    visible: { opacity: 1, transition: { duration: 0.1 } },
+    endPos: {
+      left: toggle > 0.5 ? '0%' : '100%',
+      transition: {
+        duration: Math.random() * 6 + 6,
+        ease: 'linear',
+        repeat: Infinity,
+        repeatType: 'mirror',
+      },
+    },
+  }
+
   return (
     <motion.div
-      animate={{
-        left: toggle > 0.5 ? '0%' : '100%',
-        transition: {
-          duration: Math.random() * 6 + 6,
-          ease: 'linear',
-          repeat: Infinity,
-          repeatType: 'mirror',
-        },
-      }}
-      className="absolute w-8 -z-10"
-      initial={{
-        left: toggle > 0.5 ? '100%' : '0%',
-      }}
+      animate={['visible', 'endPos']}
+      className="absolute w-8"
+      initial={['hidden']}
       style={{
-        boxShadow: `0 0 8rem 4rem hsla(${hue}, 100%, 50%, 50%)`,
-        borderRadius: '9999px',
-        height: '32rem',
         backgroundColor: `hsl(${hue}, 100%, 50%)`,
-        top: `${Math.random() * 50}%`,
+        borderRadius: '9999px',
+        boxShadow: `0 0 8rem 4rem hsla(${hue}, 100%, 50%, 50%)`,
+        height: '32rem',
+        left: toggle > 0.5 ? '100%' : '0%',
         rotate,
+        top: `${Math.random() * 50}%`,
       }}
+      variants={variants}
     />
   )
 }

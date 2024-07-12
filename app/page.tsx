@@ -1,11 +1,15 @@
 import Image from 'next/image'
+import dynamic from 'next/dynamic'
 import Gradielicious from 'gradielicious-react'
 import MoonPhase from './components/MoonPhase'
 import Stars from './components/Stars'
 import styles from './page.module.css'
-import { NeonLight } from './components/NeonLight'
 import { SiGithub, SiNpm } from '@icons-pack/react-simple-icons'
 import { Globe } from 'lucide-react'
+
+const NeonLight = dynamic(() => import('./components/NeonLight'), {
+  ssr: false,
+})
 
 export default async function ProjectsPage() {
   const dogNames = ['my doglet', 'my pooch', 'the doggo', 'Mr Doglington']
@@ -13,7 +17,7 @@ export default async function ProjectsPage() {
 
   return (
     <ul className={styles.projects}>
-      <li className={styles.project}>
+      <li className={`${styles.project} ${styles.bio}`}>
         {Array.from({ length: 2 }).map((_, index) => (
           <NeonLight index={index} key={index} />
         ))}
