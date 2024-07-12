@@ -2,9 +2,7 @@
   display: flex;
   flex-direction: column;
   gap: 6vmin;
-  overflow-y: scroll;
   padding: 6vmin;
-  scrollbar-width: none;
 }
 
 .project {
@@ -41,11 +39,18 @@
 }
 
 .project.moonphased h3,
-.project.moonphased p {
+.project.moonphased p,
+.project.moonphased svg {
   mix-blend-mode: difference;
 }
 
 .project.gradelicious h3,
-.project.gradelicious p {
+.project.gradelicious p,
+.project.gradelicious svg {
   mix-blend-mode: overlay;
+}
+
+.links {
+  display: flex;
+  gap: 3vmin;
 }

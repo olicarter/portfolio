@@ -1,9 +1,11 @@
 import Image from 'next/image'
-import AnimatedGradient from './components/AnimatedGradient'
+import Gradielicious from 'gradielicious-react'
 import MoonPhase from './components/MoonPhase'
 import Stars from './components/Stars'
 import styles from './page.module.css'
 import { NeonLight } from './components/NeonLight'
+import { SiGithub, SiNpm } from '@icons-pack/react-simple-icons'
+import { Globe } from 'lucide-react'
 
 export default async function ProjectsPage() {
   const dogNames = ['my doglet', 'my pooch', 'the doggo', 'Mr Doglington']
@@ -19,15 +21,16 @@ export default async function ProjectsPage() {
         <p className="mix-blend-difference">Web developer and designer.</p>
       </li>
       <li className={`${styles.project} ${styles.candid}`} data-angle="135deg">
-        <h3>
+        <h3>candid</h3>
+        <ul className={styles.links}>
           <a
             href="https://candid-team.vercel.app"
             rel="noreferrer"
             target="_blank"
           >
-            candid
+            <Globe />
           </a>
-        </h3>
+        </ul>
         <p>
           Feedback amongst teams is essential for a healthy culture, yet
           difficult to deliver and receive as intended.
@@ -45,21 +48,20 @@ export default async function ProjectsPage() {
         />
       </li>
       <li className={`${styles.project} ${styles.moonphased}`}>
-        <div className="absolute inset-0 z-0">
-          <Stars />
-        </div>
+        <Stars />
         <div className="absolute top-0 right-0 w-full translate-x-1/3 -translate-y-1/3">
           <MoonPhase />
         </div>
-        <h3>
+        <h3>moonphased</h3>
+        <ul className={styles.links}>
           <a
             href="https://moonphased.vercel.app"
             rel="noreferrer"
             target="_blank"
           >
-            moonphased
+            <Globe />
           </a>
-        </h3>
+        </ul>
         <p>
           Oftentimes, when {dogName} or I have insomnia, I check the phase of
           the moon to see if there&apos;s any correlation.
@@ -76,8 +78,31 @@ export default async function ProjectsPage() {
         </p>
       </li>
       <li className={`${styles.project} ${styles.gradelicious}`}>
-        <AnimatedGradient className="absolute inset-0 size-full -z-10" />
-        <h3>gradelicious</h3>
+        <Gradielicious className="absolute inset-0 size-full -z-10" />
+        <h3>gradielicious</h3>
+        <ul className={styles.links}>
+          <a
+            href="https://gradielicious.vercel.app"
+            rel="noreferrer"
+            target="_blank"
+          >
+            <Globe />
+          </a>
+          <a
+            href="https://github.com/olicarter/gradielicious"
+            rel="noreferrer"
+            target="_blank"
+          >
+            <SiGithub />
+          </a>
+          <a
+            href="https://npmjs.com/package/gradielicious"
+            rel="noreferrer"
+            target="_blank"
+          >
+            <SiNpm />
+          </a>
+        </ul>
         <p>
           My attempts to animate gradients using CSS were awkward and
           disappointing; they never felt as interesting, fluid, or organic as I

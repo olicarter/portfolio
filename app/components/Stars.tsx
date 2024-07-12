@@ -3,7 +3,7 @@ const animationDuration = 2000
 
 export default function Stars() {
   return (
-    <div className="overflow-hidden absolute inset-0 -z-10">
+    <div className="absolute inset-0 overflow-hidden pointer-events-none">
       {new Array(numStars).fill(1).map((_, index) => {
         const x = Math.random() * 100
         const y = Math.random() * 100
