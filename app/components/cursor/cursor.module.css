@@ -1,0 +1,17 @@
+.cursor {
+  background-color: white;
+  border-radius: 50%;
+  height: 1rem;
+  mix-blend-mode: difference;
+  pointer-events: none;
+  position: fixed;
+  transform: translate(-50%, -50%);
+  transition-duration: 150ms;
+  transition-property: transform;
+  width: 1rem;
+  z-index: 1000;
+}
+
+html:has(a:hover) .cursor {
+  transform: translate(-50%, -50%) scale(3);
+}

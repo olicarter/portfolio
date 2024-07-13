@@ -48,7 +48,7 @@ export default function NeonLight(props: { index: number }) {
       initial={['hidden']}
       style={{
         backgroundColor: `hsl(${hue}, 100%, 50%)`,
-        borderRadius: '9999px',
+        borderRadius: '1rem',
         boxShadow: `0 0 8rem 4rem hsla(${hue}, 100%, 50%, 50%)`,
         height: '32rem',
         left: toggle > 0.5 ? '100%' : '0%',
