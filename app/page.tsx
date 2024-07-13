@@ -28,6 +28,7 @@ export default async function ProjectsPage() {
         <h3>candid</h3>
         <ul className={styles.links}>
           <a
+            className={styles.linkCircle}
             href="https://candid-team.vercel.app"
             rel="noreferrer"
             target="_blank"
@@ -59,6 +60,7 @@ export default async function ProjectsPage() {
         <h3>moonphased</h3>
         <ul className={styles.links}>
           <a
+            className={styles.linkCircle}
             href="https://moonphased.vercel.app"
             rel="noreferrer"
             target="_blank"
@@ -86,6 +88,7 @@ export default async function ProjectsPage() {
         <h3>gradielicious</h3>
         <ul className={styles.links}>
           <a
+            className={styles.linkCircle}
             href="https://gradielicious.vercel.app"
             rel="noreferrer"
             target="_blank"
@@ -93,6 +96,7 @@ export default async function ProjectsPage() {
             <Globe />
           </a>
           <a
+            className={styles.linkCircle}
             href="https://github.com/olicarter/gradielicious"
             rel="noreferrer"
             target="_blank"
@@ -100,6 +104,7 @@ export default async function ProjectsPage() {
             <SiGithub />
           </a>
           <a
+            className={styles.linkNpm}
             href="https://npmjs.com/package/gradielicious"
             rel="noreferrer"
             target="_blank"

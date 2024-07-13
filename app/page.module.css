@@ -36,6 +36,10 @@
   color: #ecfdf5;
 }
 
+.project.candid a {
+  outline-color: #ecfdf5;
+}
+
 .project.moonphased {
   background: linear-gradient(135deg, #171717, #0a0a0a);
   color: #fefce8;
@@ -48,6 +52,10 @@
   mix-blend-mode: difference;
 }
 
+.project.moonphased a {
+  outline-color: #fefce8;
+}
+
 .project.gradelicious h3,
 .project.gradelicious p,
 .project.gradelicious svg {
@@ -55,7 +63,19 @@
   mix-blend-mode: overlay;
 }
 
+.project.gradelicious a {
+  outline-color: white;
+}
+
 .links {
   display: flex;
   gap: 3vmin;
+}
+
+.linkCircle {
+  border-radius: 50%;
+}
+
+.linkNpm {
+  border-radius: 0.125rem;
 }
