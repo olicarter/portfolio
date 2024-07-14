@@ -32,16 +32,6 @@ export default async function ProjectsPage() {
         </li>
         <li className={cn(styles.project, styles.candid)}>
           <h3>candid</h3>
-          <ul className={styles.links}>
-            <a
-              className={styles.linkCircle}
-              href="https://candid-team.vercel.app"
-              rel="noreferrer"
-              target="_blank"
-            >
-              <Globe />
-            </a>
-          </ul>
           <p>
             Feedback amongst teams is essential for a healthy culture, yet
             difficult to deliver and receive as intended.
