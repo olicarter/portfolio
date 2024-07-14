@@ -1,6 +1,6 @@
 .cursor {
   background-color: white;
-  border-radius: 50%;
+  border-radius: 0.5rem;
   height: 1rem;
   mix-blend-mode: difference;
   pointer-events: none;

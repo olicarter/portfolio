@@ -31,6 +31,11 @@
   background: linear-gradient(135deg, #0a0a0a, black);
 }
 
+.project.bio h3,
+.project.bio p {
+  mix-blend-mode: difference;
+}
+
 .project.candid {
   background: linear-gradient(135deg, #022c22, #0a0a0a);
   color: #ecfdf5;

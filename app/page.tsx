@@ -7,6 +7,7 @@ import styles from './page.module.css'
 import { SiGithub, SiNpm } from '@icons-pack/react-simple-icons'
 import { Globe } from 'lucide-react'
 import Cursor from './components/cursor'
+import cn from '@/utils/cn'
 
 const NeonLight = dynamic(() => import('./components/NeonLight'), {
   ssr: false,
@@ -20,14 +21,14 @@ export default async function ProjectsPage() {
     <>
       <Cursor />
       <ul className={styles.projects}>
-        <li className={`${styles.project} ${styles.bio}`}>
+        <li className={cn(styles.project, styles.bio)}>
           {Array.from({ length: 2 }).map((_, index) => (
             <NeonLight index={index} key={index} />
           ))}
-          <h3 className="mix-blend-difference">Oli Carter</h3>
-          <p className="mix-blend-difference">Web developer and designer.</p>
+          <h3>Oli Carter</h3>
+          <p>Web developer and designer.</p>
         </li>
-        <li className={`${styles.project} ${styles.candid}`}>
+        <li className={cn(styles.project, styles.candid)}>
           <h3>candid</h3>
           <ul className={styles.links}>
             <a
@@ -55,7 +56,7 @@ export default async function ProjectsPage() {
             height={720}
           />
         </li>
-        <li className={`${styles.project} ${styles.moonphased}`}>
+        <li className={cn(styles.project, styles.moonphased)}>
           <Stars />
           <div className="absolute top-0 right-0 w-full translate-x-1/3 -translate-y-1/3">
             <MoonPhase />
@@ -86,7 +87,7 @@ export default async function ProjectsPage() {
             the moon phase in the dead of night.
           </p>
         </li>
-        <li className={`${styles.project} ${styles.gradelicious}`}>
+        <li className={cn(styles.project, styles.gradelicious)}>
           <Gradielicious className="absolute inset-0 size-full -z-10" />
           <h3>gradielicious</h3>
           <ul className={styles.links}>

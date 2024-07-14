@@ -1,0 +1,21 @@
+.wrapper {
+  background-color: #fafafa;
+  border-radius: 9999px;
+  flex-shrink: 0;
+  overflow: hidden;
+  place-self: center;
+  position: relative;
+}
+
+.avatar {
+  border-radius: 9999px;
+  bottom: 0.75rem;
+  opacity: 0;
+  position: relative;
+  transition-duration: 500ms;
+  transition-property: opacity;
+}
+
+.avatar.loaded {
+  opacity: 1;
+}
