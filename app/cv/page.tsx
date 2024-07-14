@@ -1,5 +1,5 @@
 import { type ReactNode } from 'react'
-import Avatar from '@/app/components/Avatar'
+import Avatar from '@/app/components/avatar'
 import './style.css'
 
 const data = {
