@@ -16,6 +16,10 @@ export default function Cursor() {
     }
   }, [])
 
+  const hasMouse = window.matchMedia('(pointer: fine)').matches
+
+  if (!hasMouse) return null
+
   return (
     <div
       className={styles.cursor}

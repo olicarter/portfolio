@@ -6,9 +6,11 @@ import Stars from './components/Stars'
 import styles from './page.module.css'
 import { SiGithub, SiNpm } from '@icons-pack/react-simple-icons'
 import { Globe } from 'lucide-react'
-import Cursor from './components/cursor'
 import cn from '@/utils/cn'
 
+const Cursor = dynamic(() => import('./components/cursor'), {
+  ssr: false,
+})
 const NeonLight = dynamic(() => import('./components/NeonLight'), {
   ssr: false,
 })
