@@ -6,7 +6,7 @@
   pointer-events: none;
   position: fixed;
   transform: translate(-50%, -50%);
-  transition-duration: 150ms;
+  transition-duration: 300ms;
   transition-property: transform;
   width: 1rem;
   z-index: 1000;

@@ -30,24 +30,6 @@ export default async function ProjectsPage() {
           <h3>Oli Carter</h3>
           <p>Web developer and designer.</p>
         </li>
-        <li className={cn(styles.project, styles.candid)}>
-          <h3>candid</h3>
-          <p>
-            Feedback amongst teams is essential for a healthy culture, yet
-            difficult to deliver and receive as intended.
-          </p>
-          <p>
-            Candid aims to make feedback safe and easy through AI-powered
-            anonymisation and aggregation.
-          </p>
-          <Image
-            alt="App screenshot"
-            className="bg-emerald-950 rounded-[3vmin] w-full min-w-[768px]"
-            src="/candid-home.png"
-            width={1280}
-            height={720}
-          />
-        </li>
         <li className={cn(styles.project, styles.moonphased)}>
           <Stars />
           <div className="absolute top-0 right-0 w-full translate-x-1/3 -translate-y-1/3">
@@ -124,6 +106,24 @@ export default async function ProjectsPage() {
             fading, glowing, sometimes dark, sometimes pastel, infinitely
             random, yet performant and tweakable.
           </p>
+        </li>
+        <li className={cn(styles.project, styles.candid)}>
+          <h3>candid</h3>
+          <p>
+            Feedback amongst teams is essential for a healthy culture, yet
+            difficult to deliver and receive as intended.
+          </p>
+          <p>
+            Candid aims to make feedback safe and easy through AI-powered
+            anonymisation and aggregation.
+          </p>
+          <Image
+            alt="App screenshot"
+            className="bg-emerald-950 rounded-[3vmin] w-full min-w-[768px]"
+            src="/candid-home.png"
+            width={1280}
+            height={720}
+          />
         </li>
       </ul>
     </>
