@@ -1,0 +1,30 @@
+.project {
+  border-radius: 6vmin;
+  display: flex;
+  flex-direction: column;
+  gap: calc(4vmin + 1rem);
+  min-height: calc(100svh - 12vmin);
+  overflow: hidden;
+  padding: inherit;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transform: translateZ(0);
+  mask-image: -webkit-radial-gradient(circle, white 100%, black 100%);
+}
+
+.project:not(:first-of-type) {
+  z-index: 1;
+}
+
+.project h3 {
+  font-size: calc(8vmin + 1rem);
+  font-weight: 700;
+  line-height: 1;
+}
+
+.project p {
+  font-size: calc(1vmin + 0.8rem);
+  max-width: 1024px;
+}

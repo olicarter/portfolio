@@ -6,54 +6,23 @@
   overflow-x: hidden;
 }
 
-.project {
-  border-radius: 6vmin;
-  display: flex;
-  flex-direction: column;
-  gap: calc(4vmin + 1rem);
-  min-height: calc(100svh - 12vmin);
-  overflow: hidden;
-  padding: inherit;
-  position: relative;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  transform: translateZ(0);
-  mask-image: -webkit-radial-gradient(circle, white 100%, black 100%);
-}
-
-.project:not(:first-of-type) {
-  z-index: 1;
-}
-
-.project h3 {
-  font-size: calc(8vmin + 1rem);
-  font-weight: 700;
-  line-height: 1;
-}
-
-.project p {
-  font-size: calc(1vmin + 0.8rem);
-  max-width: 1024px;
-}
-
-.project.bio {
+div.bio {
   align-items: center;
   justify-content: center;
   overflow: visible;
   mask-image: none;
 }
 
-.project.bio h3:first-of-type {
+div.bio h3:first-of-type {
   font-size: calc(8vmin + 1rem);
 }
-.project.bio h3:last-of-type {
+div.bio h3:last-of-type {
   font-size: calc(2.5vmin + 0.5rem);
 }
 
-.project.bio h3,
-.project.bio p,
-.project.bio svg {
+div.bio h3,
+div.bio p,
+div.bio svg {
   mix-blend-mode: difference;
 }
 
@@ -105,18 +74,32 @@
   top: 0;
   border: 1px solid #022c22;
   transform-origin: top left;
+  transition-duration: 300ms;
+  transition-property: transform;
 }
 
 .project.candid img:nth-child(1) {
-  transform: translate(60%, 10%) rotateX(40deg) rotateY(30deg) rotate(350deg);
+  transform: translate(64%, 10%) rotateX(40deg) rotateY(30deg) rotate(350deg);
 }
 
 .project.candid img:nth-child(2) {
-  transform: translate(30%, 15%) rotateX(40deg) rotateY(30deg) rotate(350deg);
+  transform: translate(32%, 15%) rotateX(40deg) rotateY(30deg) rotate(350deg);
 }
 
 .project.candid img:nth-child(3) {
   transform: translate(0%, 20%) rotateX(40deg) rotateY(30deg) rotate(350deg);
+}
+
+.project.candid img:nth-child(1):hover {
+  transform: translate(64%, 5%) rotateX(40deg) rotateY(30deg) rotate(350deg);
+}
+
+.project.candid img:nth-child(2):hover {
+  transform: translate(32%, 10%) rotateX(40deg) rotateY(30deg) rotate(350deg);
+}
+
+.project.candid img:nth-child(3):hover {
+  transform: translate(0%, 15%) rotateX(40deg) rotateY(30deg) rotate(350deg);
 }
 
 .links {

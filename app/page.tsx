@@ -8,6 +8,7 @@ import { SiGithub, SiLinkedin, SiNpm } from '@icons-pack/react-simple-icons'
 import { Globe } from 'lucide-react'
 import cn from '@/utils/cn'
 import { calistoga, rowdies, slacksideOne, yellowtail } from '@/app/fonts'
+import ProjectCard from '@/app/components/project-card'
 
 const Cursor = dynamic(() => import('./components/cursor'), {
   ssr: false,
@@ -17,14 +18,11 @@ const NeonLight = dynamic(() => import('./components/NeonLight'), {
 })
 
 export default async function ProjectsPage() {
-  const dogNames = ['my doglet', 'my pooch', 'the doggo', 'Mr Doglington']
-  const dogName = dogNames[Math.floor(Math.random() * dogNames.length)]
-
   return (
     <>
       <Cursor />
       <ul className={styles.projects}>
-        <li className={cn(styles.project, styles.bio)}>
+        <ProjectCard className={styles.bio}>
           <NeonLight />
           <h3 className={calistoga.className}>OLI CARTER</h3>
           <h3 className={calistoga.className}>web developer and designer</h3>
@@ -46,11 +44,11 @@ export default async function ProjectsPage() {
               <SiLinkedin size={28} />
             </a>
           </ul>
-        </li>
-        <li className={cn(styles.project, styles.gradelicious)}>
+        </ProjectCard>
+        <ProjectCard className={styles.gradelicious} scrollAnimation>
           <Gradielicious className="absolute inset-0 size-full -z-10" />
           <h3 className={yellowtail.className}>gradielicious</h3>
-          <p>Infinitely random, ultra-performant gradients</p>
+          <p>Infinitely random, ultra-performant animated gradients</p>
           <ul className={styles.links}>
             <a
               className={styles.linkCircle}
@@ -77,8 +75,11 @@ export default async function ProjectsPage() {
               <SiNpm size={28} />
             </a>
           </ul>
-        </li>
-        <li className={cn(styles.project, styles.moonphased)}>
+        </ProjectCard>
+        <ProjectCard
+          className={cn(styles.project, styles.moonphased)}
+          scrollAnimation
+        >
           <Stars />
           <div className={styles.moon}>
             <MoonPhase />
@@ -94,9 +95,20 @@ export default async function ProjectsPage() {
             >
               <Globe size={28} />
             </a>
+            <a
+              className={styles.linkCircle}
+              href="https://github.com/olicarter/moonphase"
+              rel="noreferrer"
+              target="_blank"
+            >
+              <SiGithub size={28} />
+            </a>
           </ul>
-        </li>
-        <li className={cn(styles.project, styles.candid)}>
+        </ProjectCard>
+        <ProjectCard
+          className={cn(styles.project, styles.candid)}
+          scrollAnimation
+        >
           <h3 className={rowdies.className}>candid</h3>
           <p>AI-aggregated feedback platform for fast-moving teams</p>
           <div
@@ -129,7 +141,7 @@ export default async function ProjectsPage() {
               height={1920}
             />
           </div>
-        </li>
+        </ProjectCard>
       </ul>
     </>
   )
