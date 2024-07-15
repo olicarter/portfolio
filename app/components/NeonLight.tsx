@@ -3,18 +3,27 @@
 import { useEffect, useState } from 'react'
 import { motion, useTime, useTransform, Variants } from 'framer-motion'
 
-export default function NeonLight(props: { index: number }) {
-  const [toggle, setToggle] = useState(props.index % 2 ? 0 : 1)
+export default function NeonLight() {
+  const [val, setVal] = useState<number[]>([])
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setToggle(Math.random())
+      setVal([Math.random(), Math.random()])
     }, 3000)
     return () => {
       clearInterval(interval)
     }
   }, [])
 
+  return (
+    <>
+      <Neon val={val[0] ?? 0} />
+      <Neon val={val[1] ?? 1} />
+    </>
+  )
+}
+
+const Neon = (props: { val: number }) => {
   const hue = Math.random() * 360
   const time = useTime()
   const rotateStart = Math.random() * 360
@@ -31,7 +40,7 @@ export default function NeonLight(props: { index: number }) {
     },
     visible: { opacity: 1, transition: { duration: 0.1 } },
     endPos: {
-      left: toggle > 0.5 ? '0%' : '100%',
+      left: props.val > 0.5 ? '-25%' : '125%',
       transition: {
         duration: Math.random() * 6 + 6,
         ease: 'linear',
@@ -44,14 +53,14 @@ export default function NeonLight(props: { index: number }) {
   return (
     <motion.div
       animate={['visible', 'endPos']}
-      className="absolute w-8"
+      className="absolute w-[4vmin]"
       initial={['hidden']}
       style={{
         backgroundColor: `hsl(${hue}, 100%, 50%)`,
-        borderRadius: '1rem',
-        boxShadow: `0 0 8rem 4rem hsla(${hue}, 100%, 50%, 50%)`,
-        height: '32rem',
-        left: toggle > 0.5 ? '100%' : '0%',
+        borderRadius: '2vmin',
+        boxShadow: `0 0 16vmin 8vmin hsla(${hue}, 100%, 50%, 50%)`,
+        height: '64vmin',
+        left: props.val > 0.5 ? '90%' : '10%',
         rotate,
         top: `${Math.random() * 50}%`,
       }}

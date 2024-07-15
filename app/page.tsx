@@ -4,9 +4,10 @@ import Gradielicious from 'gradielicious-react'
 import MoonPhase from './components/MoonPhase'
 import Stars from './components/Stars'
 import styles from './page.module.css'
-import { SiGithub, SiNpm } from '@icons-pack/react-simple-icons'
+import { SiGithub, SiLinkedin, SiNpm } from '@icons-pack/react-simple-icons'
 import { Globe } from 'lucide-react'
 import cn from '@/utils/cn'
+import { calistoga, rowdies, slacksideOne, yellowtail } from '@/app/fonts'
 
 const Cursor = dynamic(() => import('./components/cursor'), {
   ssr: false,
@@ -24,46 +25,32 @@ export default async function ProjectsPage() {
       <Cursor />
       <ul className={styles.projects}>
         <li className={cn(styles.project, styles.bio)}>
-          {Array.from({ length: 2 }).map((_, index) => (
-            <NeonLight index={index} key={index} />
-          ))}
-          <h3>Oli Carter</h3>
-          <p>Web developer and designer.</p>
-        </li>
-        <li className={cn(styles.project, styles.moonphased)}>
-          <Stars />
-          <div className="absolute top-0 right-0 w-full translate-x-1/3 -translate-y-1/3">
-            <MoonPhase />
-          </div>
-          <h3>moonphased</h3>
+          <NeonLight />
+          <h3 className={calistoga.className}>OLI CARTER</h3>
+          <h3 className={calistoga.className}>web developer and designer</h3>
           <ul className={styles.links}>
             <a
               className={styles.linkCircle}
-              href="https://moonphased.vercel.app"
+              href="https://github.com/olicarter"
               rel="noreferrer"
               target="_blank"
             >
-              <Globe />
+              <SiGithub size={28} />
+            </a>
+            <a
+              className={styles.linkNpm}
+              href="https://www.linkedin.com/in/olicarter/"
+              rel="noreferrer"
+              target="_blank"
+            >
+              <SiLinkedin size={28} />
             </a>
           </ul>
-          <p>
-            Oftentimes, when {dogName} or I have insomnia, I check the phase of
-            the moon to see if there&apos;s any correlation.
-          </p>
-          <p>
-            The results vary, but one constant is how cluttered the sites for
-            checking the moon phase are. Sometimes, you want oodles of science
-            to pore through. However, when you’re wide awake at 2 a.m.,
-            simplicity is your friend.
-          </p>
-          <p>
-            That&apos;s why I made moonphased, a hyper-minimal UI for checking
-            the moon phase in the dead of night.
-          </p>
         </li>
         <li className={cn(styles.project, styles.gradelicious)}>
           <Gradielicious className="absolute inset-0 size-full -z-10" />
-          <h3>gradielicious</h3>
+          <h3 className={yellowtail.className}>gradielicious</h3>
+          <p>Infinitely random, ultra-performant gradients</p>
           <ul className={styles.links}>
             <a
               className={styles.linkCircle}
@@ -71,7 +58,7 @@ export default async function ProjectsPage() {
               rel="noreferrer"
               target="_blank"
             >
-              <Globe />
+              <Globe size={28} />
             </a>
             <a
               className={styles.linkCircle}
@@ -79,7 +66,7 @@ export default async function ProjectsPage() {
               rel="noreferrer"
               target="_blank"
             >
-              <SiGithub />
+              <SiGithub size={28} />
             </a>
             <a
               className={styles.linkNpm}
@@ -87,43 +74,61 @@ export default async function ProjectsPage() {
               rel="noreferrer"
               target="_blank"
             >
-              <SiNpm />
+              <SiNpm size={28} />
             </a>
           </ul>
-          <p>
-            My attempts to animate gradients using CSS were awkward and
-            disappointing; they never felt as interesting, fluid, or organic as
-            I envisioned.
-          </p>
-          <p>
-            Having been exposed to noise algorithms through the fantastic
-            Three.js Journey course, and armed with the superpower that is
-            Github CoPilot, I set out to create the perfect noise-based gradient
-            animation.
-          </p>
-          <p>
-            The results were exactly what I wanted; always moving, merging,
-            fading, glowing, sometimes dark, sometimes pastel, infinitely
-            random, yet performant and tweakable.
-          </p>
+        </li>
+        <li className={cn(styles.project, styles.moonphased)}>
+          <Stars />
+          <div className={styles.moon}>
+            <MoonPhase />
+          </div>
+          <h3 className={slacksideOne.className}>moonphased</h3>
+          <p>For checking the moon&apos;s phase in the dark of the night</p>
+          <ul className={styles.links}>
+            <a
+              className={styles.linkCircle}
+              href="https://moonphased.vercel.app"
+              rel="noreferrer"
+              target="_blank"
+            >
+              <Globe size={28} />
+            </a>
+          </ul>
         </li>
         <li className={cn(styles.project, styles.candid)}>
-          <h3>candid</h3>
-          <p>
-            Feedback amongst teams is essential for a healthy culture, yet
-            difficult to deliver and receive as intended.
-          </p>
-          <p>
-            Candid aims to make feedback safe and easy through AI-powered
-            anonymisation and aggregation.
-          </p>
-          <Image
-            alt="App screenshot"
-            className="bg-emerald-950 rounded-[3vmin] w-full min-w-[768px]"
-            src="/candid-home.png"
-            width={1280}
-            height={720}
-          />
+          <h3 className={rowdies.className}>candid</h3>
+          <p>AI-aggregated feedback platform for fast-moving teams</p>
+          <div
+            className="relative w-full"
+            style={{
+              perspective: '4000px',
+              perspectiveOrigin: '100% 0',
+              transformStyle: 'preserve-3d',
+            }}
+          >
+            <Image
+              alt="App screenshot"
+              className="bg-emerald-950 rounded-[1.5vw] w-2/3"
+              src="/candid-onboarding.png"
+              width={1920}
+              height={1920}
+            />
+            <Image
+              alt="App screenshot"
+              className="bg-emerald-950 rounded-[1.5vw] w-2/3"
+              src="/candid-home.png"
+              width={1920}
+              height={1920}
+            />
+            <Image
+              alt="App screenshot"
+              className="bg-emerald-950 rounded-[1.5vw] w-2/3"
+              src="/candid-settings.png"
+              width={1920}
+              height={1920}
+            />
+          </div>
         </li>
       </ul>
     </>
